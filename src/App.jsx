@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Layoutindex } from "./layout";
-import { Home } from "./pages";
+import { Home, Dashboard, About, Contact, Novels } from "./pages";
 
 function App() {
   return (
@@ -9,6 +9,10 @@ function App() {
         {/* Main page Start */}
         <Route element={<Layoutindex />}>
           <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/novels" element={<Novels />} />
         </Route>
         {/* Main page End */}
       </Routes>
