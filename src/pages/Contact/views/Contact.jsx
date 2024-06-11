@@ -1,8 +1,12 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 export default function Contact() {
   return (
     <main className="mt-14 mx-auto w-10/12 font-poppins">
+      <Helmet>
+        <title>Contact Us - Narrative</title>
+      </Helmet>
       <div className="w-full px-4 text-gray-600 md:px-8">
         <div className="max-w-lg mx-auto space-y-3 sm:text-center">
           <h3 className="text-indigo-600 font-semibold">Contact</h3>
@@ -47,6 +51,7 @@ export default function Contact() {
                     <option>US</option>
                     <option>ES</option>
                     <option>MR</option>
+                    <option>ID</option>
                   </select>
                 </div>
                 <input

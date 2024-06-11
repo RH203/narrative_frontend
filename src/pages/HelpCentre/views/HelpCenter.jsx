@@ -1,6 +1,7 @@
 import React from "react";
 import * as Tabs from "@radix-ui/react-tabs";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function HelpCenter() {
   const tabItems = [
@@ -147,6 +148,9 @@ export default function HelpCenter() {
   ];
   return (
     <div className="w-10/12 mx-auto font-poppins">
+      <Helmet>
+        <title>Help Center - Narrative</title>
+      </Helmet>
       {/* Header start */}
       <header>
         <h3 className="text-gray-800 text-4xl font-semibold text-center mt-20">

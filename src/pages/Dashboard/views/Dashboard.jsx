@@ -1,7 +1,7 @@
-
+import { Helmet } from "react-helmet"
 
 export default function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div><Helmet><title>Dashboard - Narrative</title></Helmet></div>
   )
 }

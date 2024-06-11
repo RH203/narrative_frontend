@@ -1,113 +1,127 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Buttons from "../Button/Buttons";
 
 function NavBar() {
-  const navigate = useNavigate();
-  const [state, setState] = useState(false);
-
-  // Replace javascript:void(0) paths with your paths
-  const navigation = [
-    { title: "Home", path: "/" },
-    { title: "About", path: "/about" },
-    { title: "Contact", path: "/contact" },
-    { title: "Novels", path: "/novels" },
-  ];
-
-  function handleClick(path) {
-    navigate(path);
-  }
-
   return (
-    <nav className="bg-white border-b w-full md:static md:text-sm md:border-none font-poppins">
-      <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
-        <div className="flex items-center justify-between py-3 md:py-5 md:block">
-          <a href="/" className="text-indigo-400 font-semibold text-2xl">
-            {/* <img
-              src="https://www.floatui.com/logo.svg"
-              width={120}
-              height={50}
-              alt="Float UI logo"
-            /> */}
-            Narrative
-          </a>
-          <div className="md:hidden">
-            <button
-              className="text-gray-500 hover:text-gray-800"
-              onClick={() => setState(!state)}
+    <div className="navbar bg-white font-poppins shadow-sm">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              {state ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-              )}
-            </button>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
           </div>
-        </div>
-        <div
-          className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-            state ? "block" : "hidden"
-          }`}
-        >
-          <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
-            {navigation.map((item, idx) => {
-              return (
-                <li key={idx} className="text-gray-700 hover:text-indigo-600">
-                  <a href={item.path} className="block">
-                    {item.title}
-                  </a>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-white shadow-md rounded-box w-52 font-medium text-gray-800"
+          >
+            <li>
+              <a>Home</a>
+            </li>
+            <li>
+              <a>About</a>
+            </li>
+            <li>
+              <a>Contact</a>
+            </li>
+            <li>
+              <a>Novels</a>
+              <ul className="p-1 bg-gray-500 rounded-md text-white">
+                <li>
+                  <a>Submenu 1</a>
                 </li>
-              );
-            })}
-            <span className="hidden w-px h-6 bg-gray-300 md:block"></span>
-            <div className="space-y-3 items-center gap-x-6 md:flex md:space-y-0">
-              <li>
-                <Buttons
-                  title={"Log in"}
-                  href={""}
-                  style={
-                    "block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none font-medium block"
-                  }
-                />
-              </li>
-              <li>
-                <Buttons
-                  title={"Sign in"}
-                  href={""}
-                  style={
-                    "block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
-                  }
-                />
-              </li>
-            </div>
+                <li>
+                  <a>Submenu 2</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a>Item 3</a>
+            </li>
           </ul>
         </div>
+        <Link to={"/"} className="cursor-pointer font-semibold text-2xl text-indigo-400">
+          Narrative
+        </Link>
       </div>
-    </nav>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1 font-medium text-gray-800">
+          <li className="">
+            <Link to={"/"} className="focus:text-gray-800 focus:bg-gray-300">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/about"}
+              className="focus:text-gray-800 focus:bg-gray-300"
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/contact"}
+              className="focus:text-gray-800 focus:bg-gray-300"
+            >
+              Contact
+            </Link>
+          </li>
+          <li>
+            <details>
+              <summary className="focus:text-gray-800 focus:bg-gray-300">
+                Novels
+              </summary>
+              <ul className="p-2 bg-white">
+                <li>
+                  <Link
+                    to={"/error"}
+                    className="focus:text-gray-800 focus:bg-gray-300"
+                  >
+                    Category
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={"/novels"}
+                    className="focus:text-gray-800 focus:bg-gray-300"
+                  >
+                    Novels
+                  </Link>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+      <div className="navbar-end flex">
+        <Buttons
+          title={"Sign in"}
+          link={"/sign-in"}
+          style={
+            "text-indigo-400block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+          }
+        />
+        <Buttons
+          title={"Sign up"}
+          link={"/sign-up"}
+          style={
+            "block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none font-medium"
+          }
+        />
+      </div>
+    </div>
   );
 }
 
