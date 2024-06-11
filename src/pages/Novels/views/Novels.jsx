@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Helmet } from "react-helmet";
 
 export default function Novels() {
   return (
-    <div>Novels</div>
-  )
+    <div>
+      <Helmet>
+        <title>Novels - Narrative</title>
+      </Helmet>
+    </div>
+  );
 }
