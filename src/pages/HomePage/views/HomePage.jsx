@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import TypeIt from "typeit-react";
 import { Buttons, CardCategory, CardProducts } from "../../../components";
 
-export default function Home() {
+export default function HomePage() {
   const title = ["Endless Web Novels.", "World of Web Novels."];
 
   const category = [

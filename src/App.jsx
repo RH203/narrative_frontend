@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Layoutindex } from "./layout";
 import {
-  Home,
+  HomePage,
   Dashboard,
   About,
   Contact,
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         {/* Main page Start */}
         <Route element={<Layoutindex />}>
-          <Route path="/" element={<Home />} />
+          <Route exact path="/" element={<HomePage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
