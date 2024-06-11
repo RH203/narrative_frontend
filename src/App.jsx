@@ -8,6 +8,9 @@ import {
   Novels,
   HelpCenter,
   HelpCenterBot,
+  ErrorPage,
+  SignInPage,
+  SignUpPage,
 } from "./pages";
 
 function App() {
@@ -23,8 +26,14 @@ function App() {
           <Route path="/novels" element={<Novels />} />
           <Route path="/help-center" element={<HelpCenter />} />
           <Route path="/help-center/bot-nara" element={<HelpCenterBot />} />
+          <Route path="/error" element={<ErrorPage />} />
         </Route>
         {/* Main page End */}
+
+        {/* Auth page start */}
+        <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
+        {/* Auth page End */}
       </Routes>
     </Router>
   );
