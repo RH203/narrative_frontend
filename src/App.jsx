@@ -1,6 +1,14 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Layoutindex } from "./layout";
-import { Home, Dashboard, About, Contact, Novels } from "./pages";
+import {
+  Home,
+  Dashboard,
+  About,
+  Contact,
+  Novels,
+  HelpCenter,
+  HelpCenterBot,
+} from "./pages";
 
 function App() {
   return (
@@ -13,6 +21,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/novels" element={<Novels />} />
+          <Route path="/help-center" element={<HelpCenter />} />
+          <Route path="/help-center/bot-nara" element={<HelpCenterBot />} />
         </Route>
         {/* Main page End */}
       </Routes>
