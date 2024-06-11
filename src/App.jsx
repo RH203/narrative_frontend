@@ -16,7 +16,7 @@ function App() {
       <Routes>
         {/* Main page Start */}
         <Route element={<Layoutindex />}>
-          <Route path="/" element={<HomePage />} />
+          <Route exact path="/" element={<HomePage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
