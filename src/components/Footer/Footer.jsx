@@ -22,8 +22,8 @@ export default function Footer() {
     },
 
     {
-      href: "javascript:void()",
-      name: "Suport",
+      href: "/help-center",
+      name: "Support",
     },
   ];
 
