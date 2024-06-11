@@ -1,4 +1,4 @@
-import Home from "./Home/views/Home";
+import HomePage from "./HomePage/views/HomePage";
 import Dashboard from "./Dashboard/views/Dashboard";
 import About from "./About/views/About";
 import Contact from "./Contact/views/Contact";
@@ -7,7 +7,7 @@ import HelpCenter from "./HelpCentre/views/HelpCenter";
 import HelpCenterBot from "./HelpCentre/views/HelpCenterBot";
 
 export {
-  Home,
+  HomePage,
   Dashboard,
   About,
   Contact,
