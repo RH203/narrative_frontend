@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import TypeIt from "typeit-react";
 import { Buttons, CardCategory, CardProducts } from "../../../components";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   const title = ["Endless Web Novels.", "World of Web Novels."];
@@ -109,21 +110,28 @@ export default function HomePage() {
             <Buttons
               link={""}
               title={"Get started"}
-              style={"bg-white text-gray-800 sm:w-auto shadow-md"}
+              style={"bg-white text-gray-800 sm:w-auto font-medium shadow-md"}
             />
             <Buttons
               link={""}
               title={"Try it out"}
-              style={"bg-gray-800 text-gray-200 sm:w-auto shadow-md"}
+              style={
+                "text-indigo-400 block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+              }
             />
           </div>
         </div>
-        <div className="flex-1 text-center mt-7 lg:mt-0 lg:ml-3 lg:block hidden md:hidden sm:hidden">
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ ease: "linear", duration: 2}}
+          className="flex-1 text-center mt-7 lg:mt-0 lg:ml-3 lg:block hidden md:hidden sm:hidden"
+        >
           <img
             src="https://i.postimg.cc/HxHyt53c/undraw-heatmap-uyye.png"
             className="w-full mx-auto lg:w-full"
           />
-        </div>
+        </motion.div>
       </section>
       {/* Hero page End */}
 
