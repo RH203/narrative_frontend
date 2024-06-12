@@ -11,6 +11,8 @@ import {
   ErrorPage,
   SignInPage,
   SignUpPage,
+  SuccessPage,
+  Category,
 } from "./pages";
 
 function App() {
@@ -23,10 +25,14 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          {/* Main novels Start */}
           <Route path="/novels" element={<Novels />} />
+          <Route path="/category" element={<Category />} />
+          {/* Main novels End */}
           <Route path="/help-center" element={<HelpCenter />} />
           <Route path="/help-center/bot-nara" element={<HelpCenterBot />} />
           <Route path="/error" element={<ErrorPage />} />
+          <Route path="/success" element={<SuccessPage />} />
         </Route>
         {/* Main page End */}
 
