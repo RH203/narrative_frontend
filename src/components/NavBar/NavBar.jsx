@@ -105,19 +105,19 @@ function NavBar() {
           </li>
         </ul>
       </div>
-      <div className="navbar-end flex">
+      <div className="navbar-end flex mr-2">
         <Buttons
           title={"Sign in"}
           link={"/sign-in"}
           style={
-            "text-indigo-400block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+          "text-indigo-400 p-2 block font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
           }
         />
         <Buttons
           title={"Sign up"}
           link={"/sign-up"}
           style={
-            "block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none font-medium"
+            "block p-2 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none font-medium"
           }
         />
       </div>
