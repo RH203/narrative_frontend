@@ -1,6 +1,11 @@
 import { Helmet } from "react-helmet";
 import TypeIt from "typeit-react";
-import { Buttons, CardCategory, CardProducts } from "../../../components";
+import {
+  Buttons,
+  CardCategory,
+  CardProducts,
+  ScrollToTopButton,
+} from "../../../components";
 import { motion } from "framer-motion";
 
 export default function HomePage() {
@@ -110,13 +115,15 @@ export default function HomePage() {
             <Buttons
               link={""}
               title={"Get started"}
-              style={"bg-white text-gray-800 sm:w-auto font-medium shadow-md"}
+              style={
+                "bg-white py-3 px-4 text-gray-800 sm:w-auto font-medium shadow-md"
+              }
             />
             <Buttons
               link={""}
               title={"Try it out"}
               style={
-                "text-indigo-400 block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+                "block py-3 px-5 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
               }
             />
           </div>
@@ -124,8 +131,8 @@ export default function HomePage() {
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ ease: "linear", duration: 2}}
-          className="flex-1 text-center mt-7 lg:mt-0 lg:ml-3 lg:block hidden md:hidden sm:hidden"
+          transition={{ ease: "easeInOut", duration: 2 }}
+          className="flex-1 text-center mt-7 lg:mt-0 lg:ml-3 hidden lg:block md:hidden sm:hidden"
         >
           <img
             src="https://i.postimg.cc/HxHyt53c/undraw-heatmap-uyye.png"
@@ -163,25 +170,35 @@ export default function HomePage() {
       <hr className="border border-gray-300 my-14" />
 
       {/* Header category Start */}
-      <div className=" mx-auto flex justify-between items-center">
+      <motion.div
+        className=" mx-auto flex justify-between items-center"
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1, ease: "easeInOut", duration: 5 }}
+        viewport={{ once: true }}
+      >
         <p className="font-semibold text-xl text-gray-600">Top category</p>
         <Buttons
           link={""}
           title={"More"}
           style={"font-medium text-gray-800 text-xl underline"}
         />
-      </div>
+      </motion.div>
       {/* Header category End */}
 
       {/* Category Start */}
-      <div className=" mx-auto grid lg:grid-rows-1 gap-4 mt-3">
+      <motion.div
+        className=" mx-auto grid lg:grid-rows-1 gap-4 mt-3"
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1, ease: "easeInOut", duration: 5 }}
+        viewport={{ once: true }}
+      >
         <div className="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 gap-3">
           {category.map((category, index) => {
             return (
               <CardCategory
                 key={index}
                 style={
-                  "text-gray-800 font-semibold bg-gray-300 hover:bg-gray-800 hover:text-gray-300"
+                  "text-white font-semibold bg-indigo-600 hover:bg-indigo-500 hover:text-white active:bg-indigo-700"
                 }
                 title={category.title}
                 href={category.href}
@@ -189,7 +206,7 @@ export default function HomePage() {
             );
           })}
         </div>
-      </div>
+      </motion.div>
       {/* Category End */}
 
       <hr className="border border-gray-300 my-14" />
@@ -232,6 +249,8 @@ export default function HomePage() {
         </div>
       </section>
       {/* Feature End */}
+
+      <ScrollToTopButton />
     </div>
   );
 }
