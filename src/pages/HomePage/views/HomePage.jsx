@@ -148,7 +148,7 @@ export default function HomePage() {
       <div className=" mx-auto flex justify-between items-center">
         <p className="font-semibold text-xl text-gray-600">Explore Our Picks</p>
         <Buttons
-          link={""}
+          link={"/novels"}
           title={"More"}
           style={"font-medium text-gray-800 text-xl underline"}
         />
@@ -178,7 +178,7 @@ export default function HomePage() {
       >
         <p className="font-semibold text-xl text-gray-600">Top category</p>
         <Buttons
-          link={""}
+          link={"/category"}
           title={"More"}
           style={"font-medium text-gray-800 text-xl underline"}
         />

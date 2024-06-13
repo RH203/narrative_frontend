@@ -27,22 +27,44 @@ function NavBar() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-white shadow-md rounded-box w-52 font-medium text-gray-800"
           >
             <li>
-              <a>Home</a>
+              <Link to={"/"} className="focus:text-gray-800 focus:bg-gray-300">
+                Home
+              </Link>
             </li>
             <li>
-              <a>About</a>
+              <Link
+                to={"/about"}
+                className="focus:text-gray-800 focus:bg-gray-300"
+              >
+                About
+              </Link>
             </li>
             <li>
-              <a>Contact</a>
+              <Link
+                to={"/contact"}
+                className="focus:text-gray-800 focus:bg-gray-300"
+              >
+                Contact
+              </Link>
             </li>
             <li>
               <a>Novels</a>
               <ul className="p-1 bg-gray-500 rounded-md text-white">
                 <li>
-                  <a>Submenu 1</a>
+                  <Link
+                    to={"/category"}
+                    className="focus:text-gray-800 focus:bg-gray-300"
+                  >
+                    Category
+                  </Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <Link
+                    to={"/novels"}
+                    className="focus:text-gray-800 focus:bg-gray-300"
+                  >
+                    Novels
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -51,7 +73,10 @@ function NavBar() {
             </li>
           </ul>
         </div>
-        <Link to={"/"} className="cursor-pointer font-semibold text-2xl text-indigo-400">
+        <Link
+          to={"/"}
+          className="cursor-pointer font-semibold text-2xl text-indigo-400"
+        >
           Narrative
         </Link>
       </div>
@@ -86,7 +111,7 @@ function NavBar() {
               <ul className="p-2 bg-white">
                 <li>
                   <Link
-                    to={"/error"}
+                    to={"/category"}
                     className="focus:text-gray-800 focus:bg-gray-300"
                   >
                     Category
@@ -110,14 +135,14 @@ function NavBar() {
           title={"Sign in"}
           link={"/sign-in"}
           style={
-          "text-indigo-400 p-2 block font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+            "text-indigo-400 py-2 px-3 block font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
           }
         />
         <Buttons
           title={"Sign up"}
           link={"/sign-up"}
           style={
-            "block p-2 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none font-medium"
+            "block py-2 px-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none font-medium"
           }
         />
       </div>
