@@ -1,3 +1,4 @@
 import Layoutindex from "./LayoutIndex";
+import LayoutAdmin from "./LayoutAdmin";
 
-export { Layoutindex };
+export { Layoutindex, LayoutAdmin };
