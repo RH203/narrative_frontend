@@ -29,12 +29,12 @@ const ScrollToTopButton = () => {
     <motion.button
       initial={{ opacity: 0 }}
       animate={{ opacity: visible ? 1 : 0 }}
-      transition={{ ease: "linear", duration: 0.3 }}
+      transition={{ ease: "linear", duration: 0.4 }}
       onClick={scrollToTop}
-      className="fixed bottom-5 right-5 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none"
+      className="fixed bottom-5 right-5 bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-800 focus:outline-none"
       style={{ display: visible ? "block" : "none" }}
     >
-      <FaArrowUp size={"2em"}/>
+      <FaArrowUp size={"2em"} />
     </motion.button>
   );
 };
