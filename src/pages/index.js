@@ -1,5 +1,4 @@
 import HomePage from "./HomePage/views/HomePage";
-import Dashboard from "./Dashboard/views/Dashboard";
 import About from "./About/views/About";
 import Contact from "./Contact/views/Contact";
 import Novels from "./Novels/views/Novels";
@@ -10,13 +9,20 @@ import SignUpPage from "./AuthPage/views/SignUpPage";
 // Help Center
 import HelpCenter from "./HelpCentre/views/HelpCenter";
 import HelpCenterBot from "./HelpCentre/views/HelpCenterBot";
+import UserRoom from "./HelpCentre/views/UserRoom";
 // Status page
 import ErrorPage from "./ErrorPage/views/ErrorPage";
 import SuccessPage from "./SuccessPage/views/SuccessPage";
+// Admin page
+import AdminPage from "./AdminPage/views/AdminPage";
+import AdminChat from "./AdminPage/views/AdminChat";
+import WaitingListChatAdmin from "./AdminPage/views/WaitingListChatAdmin";
 
 export {
+  AdminPage,
+  AdminChat,
+  WaitingListChatAdmin,
   HomePage,
-  Dashboard,
   About,
   Contact,
   Novels,
@@ -27,4 +33,5 @@ export {
   ErrorPage,
   SuccessPage,
   Category,
+  UserRoom,
 };
