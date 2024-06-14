@@ -1,27 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Helmet } from "react-helmet";
 import { IoMdSend } from "react-icons/io";
 import roomChat from "../../../../service/supabase";
+import responseBot from "../../../../service/chatBot";
+import formatText from "../../../utils/helper/formatText";
 
 export default function HelpCenterBot() {
   const [askOptions, setAskOptions] = useState(null);
+  const [statusDelivery, setStatusDelivery] = useState(null);
   const [historyMessage, setHistoryMessage] = useState([]);
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    const receiveMessage = (payload) => {
-      setHistoryMessage((prevMessages) => [...prevMessages, { message: payload.message, type: "bot" }]);
-    };
-
-    roomChat.on("broadcast", { event: "message" }, (payload) => {
-      console.log("Message received:", payload);
-      receiveMessage(payload);
-    });
-
-    return () => {
-      roomChat.off("broadcast", { event: "message" });
-    };
-  }, []);
 
   const changeAskOptions = (value) => {
     setAskOptions(value);
@@ -29,7 +17,7 @@ export default function HelpCenterBot() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newMessage = { message, type: "user" };
+    const newMessage = { message: message, type: "user" };
 
     setHistoryMessage([...historyMessage, newMessage]);
 
@@ -40,6 +28,31 @@ export default function HelpCenterBot() {
     });
 
     setMessage("");
+  };
+
+  const handleSubmitBot = async (event) => {
+    event.preventDefault();
+    console.log("this function run");
+
+    const newMessage = { message: message, type: "user" };
+    setHistoryMessage([...historyMessage, newMessage]);
+    setStatusDelivery(false);
+
+    setMessage("");
+
+    const response = await responseBot(message);
+    // const formatResponse = formatText(response);
+    // setHistoryMessage((prevMessages) => [
+    //   ...prevMessages,
+    //   { message: formatResponse, type: "bot" },
+    // ]);
+    setHistoryMessage((prevMessages) => [
+      ...prevMessages,
+      { message: response, type: "bot" },
+    ]);
+    setStatusDelivery(true);
+
+    console.log("this function done");
   };
 
   return (
@@ -58,31 +71,44 @@ export default function HelpCenterBot() {
 
       <hr className="border border-gray-300 my-14" />
 
+      {/* Bot section */}
       {askOptions && (
         <div>
           <div className="w-full h-96 shadow-lg bg-white rounded-t-lg p-10 text-gray-800 font-medium overflow-y-auto">
             {historyMessage.map((msg, index) => (
-              <div className={`chat ${msg.type === 'user' ? 'chat-end' : 'chat-start'}`} key={index}>
+              <div
+                className={`chat ${
+                  msg.type === "user" ? "chat-end" : "chat-start"
+                }`}
+                key={index}
+              >
                 <div className="chat-image avatar">
                   <div className="w-10 rounded-full border border-gray-800">
                     <img
                       alt="Tailwind CSS chat bubble component"
-                      src={msg.type === 'user' ? "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" : "/icon/narrative.png"}
+                      src={
+                        msg.type === "user"
+                          ? "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                          : "/icon/narrative.png"
+                      }
                     />
                   </div>
                 </div>
                 <div className="chat-header">
-                  {msg.type === 'user' ? "User" : "Nara"}
+                  {msg.type === "user" ? "User" : "Nara"}
                   <time className="text-xs opacity-50 p-1">
-                    {new Date().getHours()} : {new Date().getMinutes()}
+                    {new Date().getHours()}:{new Date().getMinutes()}
                   </time>
                 </div>
                 <div className="chat-bubble text-white">{msg.message}</div>
+                <div className="chat-footer opacity-50">
+                  {statusDelivery ? "Delivered" : "Sending..."}
+                </div>
               </div>
             ))}
           </div>
 
-          <form className="join w-full" onSubmit={handleSubmit}>
+          <form className="join w-full" onSubmit={handleSubmitBot}>
             <input
               className="input input-bordered join-item w-full bg-gray-300 placeholder:text-gray-800 text-gray-800"
               placeholder="Enter your message"
@@ -99,21 +125,31 @@ export default function HelpCenterBot() {
         </div>
       )}
 
+      {/* Admin section */}
       {askOptions === false && (
         <div>
           <div className="w-full h-96 shadow-lg bg-white rounded-t-lg p-10 text-gray-800 font-medium overflow-y-auto">
             {historyMessage.map((msg, index) => (
-              <div className={`chat ${msg.type === 'user' ? 'chat-end' : 'chat-start'}`} key={index}>
+              <div
+                className={`chat ${
+                  msg.type === "user" ? "chat-end" : "chat-start"
+                }`}
+                key={index}
+              >
                 <div className="chat-image avatar">
                   <div className="w-10 rounded-full border border-gray-800">
                     <img
                       alt="Tailwind CSS chat bubble component"
-                      src={msg.type === 'user' ? "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" : "/icon/narrative.png"}
+                      src={
+                        msg.type === "user"
+                          ? "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                          : "/icon/narrative.png"
+                      }
                     />
                   </div>
                 </div>
                 <div className="chat-header">
-                  {msg.type === 'user' ? "User" : "Nara"}
+                  {msg.type === "user" ? "User" : "Nara"}
                   <time className="text-xs opacity-50 p-1">
                     {new Date().getHours()} : {new Date().getMinutes()}
                   </time>
