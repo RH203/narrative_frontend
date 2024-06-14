@@ -4,6 +4,7 @@ import Buttons from "./Button/Buttons";
 import CardProducts from "./CardProducts/CardProducts";
 import CardCategory from "./CardCategory/CardCategory";
 import ScrollToTopButton from "./ScrollToTopButton/ScrollToTopButton";
+import SideBar from "./SideBar/SideBar";
 
 export {
   NavBar,
@@ -12,4 +13,5 @@ export {
   CardProducts,
   CardCategory,
   ScrollToTopButton,
+  SideBar,
 };
