@@ -9,17 +9,16 @@ export default function AdminChat() {
 
   useEffect(() => {
     const receiveMessage = (payload) => {
-      setHistoryMessage((prevMessages) => [...prevMessages, { message: payload.message, type: "bot" }]);
+      setHistoryMessage((prevMessages) => [
+        ...prevMessages,
+        { message: payload.message, type: "bot" },
+      ]);
     };
 
     roomChat.on("broadcast", { event: "message" }, (payload) => {
       console.log("Message received:", payload);
       receiveMessage(payload);
     });
-
-    return () => {
-      roomChat.off("broadcast", { event: "message" });
-    };
   }, []);
 
   const handleSubmit = (event) => {
@@ -54,19 +53,28 @@ export default function AdminChat() {
       {/* Container chat Start */}
       <div className="h-96 p-4 rounded-lg bg-gray-200 shadow-lg text-gray-800 font-medium overflow-y-auto">
         {historyMessage.map((msg, index) => (
-          <div className={`chat ${msg.type === 'user' ? 'chat-end' : 'chat-start'}`} key={index}>
+          <div
+            className={`chat ${
+              msg.type === "user" ? "chat-end" : "chat-start"
+            }`}
+            key={index}
+          >
             <div className="chat-image avatar">
               <div className="w-10 rounded-full border border-gray-800">
                 <img
                   alt="Tailwind CSS chat bubble component"
-                  src={msg.type === 'user' ? "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" : "/icon/narrative.png"}
+                  src={
+                    msg.type === "user"
+                      ? "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                      : "/icon/narrative.png"
+                  }
                 />
               </div>
             </div>
             <div className="chat-header">
-              {msg.type === 'user' ? "User" : "Nara"}
+              {msg.type === "user" ? "Nara" : "User"}
               <time className="text-xs opacity-50 p-1">
-                {new Date().getHours()} : {new Date().getMinutes()}
+                {new Date().getHours()}:{new Date().getMinutes()}
               </time>
             </div>
             <div className="chat-bubble text-white">{msg.message}</div>
