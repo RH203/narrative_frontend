@@ -1,8 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { Layoutindex } from "./layout";
+import { LayoutAdmin, Layoutindex } from "./layout";
 import {
   HomePage,
-  Dashboard,
   About,
   Contact,
   Novels,
@@ -13,6 +12,10 @@ import {
   SignUpPage,
   SuccessPage,
   Category,
+  UserRoom,
+  AdminPage,
+  AdminChat,
+  WaitingListChatAdmin,
 } from "./pages";
 
 function App() {
@@ -22,7 +25,6 @@ function App() {
         {/* Main page Start */}
         <Route element={<Layoutindex />}>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           {/* Main novels Start */}
@@ -40,6 +42,11 @@ function App() {
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
         {/* Auth page End */}
+        <Route element={<LayoutAdmin />}>
+          <Route exact path="/admin" element={<AdminPage />} />
+          <Route path="/admin/chat" element={<AdminChat />} />
+          <Route path="/admin/waiting-list" element={<WaitingListChatAdmin />} />
+        </Route>
       </Routes>
     </Router>
   );
