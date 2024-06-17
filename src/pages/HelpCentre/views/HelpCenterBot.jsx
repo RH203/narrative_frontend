@@ -1,8 +1,8 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Helmet } from "react-helmet";
 import { IoMdSend } from "react-icons/io";
-import roomChat from "../../../../service/supabase";
-import responseBot from "../../../../service/chatBot";
+import roomChat from "../../../components/service/supabase";
+import responseBot from "../../../components/service/chatBot";
 import formatText from "../../../utils/helper/formatText";
 
 export default function HelpCenterBot() {
