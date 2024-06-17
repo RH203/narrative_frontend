@@ -111,19 +111,19 @@ export default function HomePage() {
             fantasy, romance, or sci-fi, there&apos;s something for every
             reader.
           </p>
-          <div className="pt-10 items-center justify-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex lg:justify-start">
+          <div className="pt-10 items-center justify-center gap-3 sm:flex m lg:justify-start">
             <Buttons
               link={""}
               title={"Get started"}
               style={
-                "bg-white py-3 px-4 text-gray-800 sm:w-auto font-medium shadow-md"
+                " bg-white py-3 px-4 text-gray-800 sm:w-auto font-medium shadow-lg"
               }
             />
             <Buttons
               link={""}
               title={"Try it out"}
               style={
-                "block py-3 px-5 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline"
+                " py-3 px-5 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700  rounded-lg shadow-lg "
               }
             />
           </div>
@@ -157,7 +157,7 @@ export default function HomePage() {
 
       {/* Content recomendation Start */}
       <div className="grid lg:grid-rows-1 mt-3 gap-4">
-        <div className="grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-2  gap-3">
+        <div className="grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-2  gap-3">
           <CardProducts />
           <CardProducts />
           <CardProducts />
@@ -192,7 +192,7 @@ export default function HomePage() {
         whileInView={{ scale: 1, ease: "easeInOut", duration: 5 }}
         viewport={{ once: true }}
       >
-        <div className="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 gap-3">
+        <div className="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-2 gap-3">
           {category.map((category, index) => {
             return (
               <CardCategory
@@ -212,12 +212,12 @@ export default function HomePage() {
       <hr className="border border-gray-300 my-14" />
 
       {/* Banner Start */}
-      <div className="mx-auto artboard artboard-horizontal phone-5 flex justify-center items-center bg-gray-700 mt-20 rounded-lg lg:flex md:hidden sm:hidden">
+      <div className="mx-auto artboard artboard-horizontal phone-5 flex justify-center items-center bg-gray-700 mt-20 rounded-lg lg:flex md:hidden sm:hidden xs:hidden">
         896×414
       </div>
       {/* Banner End */}
 
-      <hr className="border border-gray-300 my-14 lg:block md:hidden sm:hidden" />
+      <hr className="border border-gray-300 my-14 lg:block md:hidden sm:hidden xs:hidden" />
 
       {/* Feature Start */}
       <section className="my-24">
@@ -232,7 +232,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="mt-12">
-            <ul className="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-3 xs:grid-cols-2">
               {features.map((item, idx) => (
                 <li key={idx} className="space-y-3">
                   <div className="w-12 h-12 mx-auto bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center">
