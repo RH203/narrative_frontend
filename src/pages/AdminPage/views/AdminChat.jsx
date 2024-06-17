@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { IoMdSend } from "react-icons/io";
-import roomChat from "../../../../service/supabase";
+import roomChat from "../../../components/service/supabase";
 
 export default function AdminChat() {
   const [historyMessage, setHistoryMessage] = useState([]);
