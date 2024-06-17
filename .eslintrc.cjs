@@ -19,5 +19,6 @@ module.exports = {
     ],
     "react/prop-types": "off",
     "no-unused-vars": "off",
+    indent: ['error', 2],
   },
 };
